@@ -1,0 +1,26 @@
+---
+title: "Week 5 Visualizations"
+author: "Dongyoon Lee"
+date: "September 25, 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(bslib)
+library(dplyr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Visualizations
+
+```{r pressure, echo=FALSE}
+url <- "https://raw.githubusercontent.com/fivethirtyeight/data/master/nba-draymond/draymond.csv"
+nba_draymond <- read_csv(url)
+hist(nba_draymond$DRAYMOND, xlim=c(-20,20), breaks=100, main="Histogram of DRAYMOND Ratings")
+ggplot(nba_draymond, aes(x=possessions, y=DRAYMOND)) + geom_point() + ggtitle("Scatterplot between DRAYMOND Ratings and Possessions Played")
+```
+
